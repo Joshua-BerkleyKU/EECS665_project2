@@ -130,14 +130,14 @@ globals 		: globals decl {}
 				| /* epsilon */	{}
 
 decl 			: varDecl {}
-				| recordDecl
+				| recordDecl {}
 
-recordDecl		: RECORD id OPEN varDeclList CLOSE
+recordDecl		: RECORD id OPEN varDeclList CLOSE {}
 
 varDecl 		: type id SEMICOL {}
 
-varDeclList		: varDecl
-				| varDeclList varDecl
+varDeclList		: varDecl {}
+				| varDeclList varDecl {}
 
 type 			: INT {}
 				| BOOL {}
