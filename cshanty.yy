@@ -146,11 +146,16 @@ type 			: INT {}
 				| VOID {}
 				| id {}
 
-fnDecl          : type id LPAREN RPAREN OPEN  CLOSE
-				| type id LPAREN formals RPAREN OPEN  CLOSE
+fnDecl          : type id LPAREN RPAREN OPEN stmtList CLOSE
+				| type id LPAREN formals RPAREN OPEN stmtList CLOSE
 
 formals         : type id {}
                 | formals COMMA type id {}
+
+stmtList        ::= stmtList stmt
+                | /* epsilon */
+
+stmt			: varDecl SEMICOL
 
 id				: ID {}
 
