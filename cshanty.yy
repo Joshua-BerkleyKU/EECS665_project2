@@ -124,29 +124,31 @@ project)
    grammar and make sure that all of the productions of the 
    given nonterminals are complete
 */
-program 	: globals
+program 		: globals
 		  {
 		  }
-globals 	: globals decl 
+globals 		: globals decl 
 	  	  { 
 	  	  }
-			| /* epsilon */
+				| /* epsilon */
 		  { 
 		  }
 
-decl 		: varDecl SEMICOL
+decl 			: varDecl SEMICOL
 		  {
 		  }
 
-varDecl 	: type id
+varDecl 		: type id
 		  {
 		  }
 
-type 		: INT
+type 			: INT
 	  	  { 
 		  }
+lval            : id
+                | id LBRACE id RBRACE
 
-id		: ID
+id				: ID
 		  {
 		  }
  /* TODO: add productions for the entire grammar of the language */
