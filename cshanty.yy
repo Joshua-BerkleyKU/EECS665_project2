@@ -124,42 +124,42 @@ project)
    grammar and make sure that all of the productions of the 
    given nonterminals are complete
 */
-program         ::= globals {}
+program         : globals {}
 
-globals         ::= globals decl {}
+globals         : globals decl {}
                 | /* epsilon */ {}
 
-decl            ::= varDecl {}
+decl            : varDecl {}
                 | fnDecl {}
 				| recordDecl {}
 
-recordDecl		::= RECORD id OPEN varDeclList CLOSE {}
+recordDecl		: RECORD id OPEN varDeclList CLOSE {}
 
-varDecl         ::= type id SEMICOL
+varDecl         : type id SEMICOL
 
-varDeclList		::= varDecl {}
+varDeclList		: varDecl {}
 				| varDeclList varDecl {}
 
-type            ::= INT {}
+type            : INT {}
                 |   BOOL {}
 				|   STRING {}
                 |   VOID {}
 				|   id {}
 
-fnDecl          ::= type id LPAREN RPAREN OPEN stmtList CLOSE {}
+fnDecl          : type id LPAREN RPAREN OPEN stmtList CLOSE {}
 				|   type id LPAREN formals RPAREN OPEN stmtList CLOSE {}
 
-formals         ::= formalDecl {}
+formals         : formalDecl {}
                 | formals COMMA formalDecl {}
 
-formalDecl		::= type id {}
+formalDecl		: type id {}
 
-fnBody          ::= OPEN stmtList CLOSE {}
+fnBody          : OPEN stmtList CLOSE {}
 
-stmtList        ::= stmtList stmt {}
+stmtList        : stmtList stmt {}
                 | /* epsilon */ {}
 
-stmt            ::= varDecl SEMICOL {}
+stmt            : varDecl SEMICOL {}
                 | assignExp SEMICOL {}
                 | lval DEC SEMICOL {}
                 | lval INC SEMICOL {}
@@ -172,7 +172,7 @@ stmt            ::= varDecl SEMICOL {}
                 | RETURN SEMICOL {}
                 | callExp SEMICOL {}
 
-exp             ::= assignExp {}
+exp             : assignExp {}
                 | exp MINUS exp {}
                 | exp PLUS exp {}
                 | exp TIMES exp {}
@@ -189,16 +189,16 @@ exp             ::= assignExp {}
                 | MINUS term {}
                 | term {}
 
-assignExp       ::= lval ASSIGN exp {}
+assignExp       : lval ASSIGN exp {}
 
-callExp         ::=  id LPAREN RPAREN  {} // fn call with no args
+callExp         : id LPAREN RPAREN  {} // fn call with no args
                 | id LPAREN actualsList RPAREN {} // with args
 
-actualsList     ::= exp {}
+actualsList     : exp {}
                 | actualsList COMMA exp {}
                 
 
-term            ::= lval {}
+term            : lval {}
                 | INTLITERAL {}
                 | STRLITERAL {}
                 | TRUE {}
@@ -206,10 +206,10 @@ term            ::= lval {}
                 | LPAREN exp RPAREN {}
                 | callExp {}
 
-lval             ::= id {}
+lval            : id {}
                 | id LBRACE id RBRACE {}
 
-id              ::= ID {} 
+id              : ID {} 
  /* TODO: add productions for the entire grammar of the language */
 	
 %%
