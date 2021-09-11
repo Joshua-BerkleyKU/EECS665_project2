@@ -144,7 +144,7 @@ varDecl 	: type id
 
 type 		: INT
 	  	  { 
-				LHS.trans = {INT.value};
+				$$ = $1;
 		  }
 
 id		: ID
