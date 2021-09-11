@@ -152,7 +152,6 @@ term            : lval
                 | STRLITERAL
                 | TRUE
                 | FALSE
-                | LPAREN exp RPAREN
 
 lval            : id
                 | id LBRACE id RBRACE
