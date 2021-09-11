@@ -144,7 +144,7 @@ varDecl 	: type id
 
 type 		: INT
 	  	  { 
-				$$ = {INT.value};
+				$$ = $1.value;
 		  }
 
 id		: ID
