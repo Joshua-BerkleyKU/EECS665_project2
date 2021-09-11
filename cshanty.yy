@@ -134,16 +134,49 @@ globals 	: globals decl
 		  { 
 		  }
 
-decl 		: varDecl SEMICOL
+decl 		: varDecl
+		  {
+		  }
+		| fnDec1
+		  {
+		  }
+		  {
+		  }
+		| recordDec1
 		  {
 		  }
 
-varDecl 	: type id
+varDecl 	: type id SEMICOL
+		  {
+		  }
+
+varDeclList : varDecl
+		  {
+		  }
+		| varDeclList varDecl
 		  {
 		  }
 
 type 		: INT
-	  	  { 
+		  {
+		  }
+		| BOOL
+		  {
+		  }
+		  {
+		  }
+		| STRING
+		  {
+		  }
+		  {
+		  }
+		| VOID
+		  {
+		  }
+		  {
+		  }
+		| id
+		  {
 		  }
 
 id		: ID
