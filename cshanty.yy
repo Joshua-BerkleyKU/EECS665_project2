@@ -147,7 +147,7 @@ type 			: INT
 		  }
 
 
-term            ::= lval
+term            : lval
                 | INTLITERAL
                 | STRLITERAL
                 | TRUE
