@@ -118,19 +118,19 @@ project)
  * declarations
 */
 
-%left MINUS
-%left PLUS
-%left TIMES
-%left DIVIDE
-%left AND
-%left OR
-%nonassoc LESS
-%nonassoc LESSEQ
-%nonassoc EQUALS
-%nonassoc NOTEQUALS
-%nonassoc GREATER
-%nonassoc GREATEREQ
-%right ASSIGN 
+%left "MINUS"
+%left "PLUS"
+%left "TIMES"
+%left "DIVIDE"
+%left "AND"
+%left "OR"
+%nonassoc "LESS"
+%nonassoc "LESSEQ"
+%nonassoc "EQUALS"
+%nonassoc "NOTEQUALS"
+%nonassoc "GREATER"
+%nonassoc "GREATEREQ"
+%right "ASSIGN" 
 
 %precedence NOT
 %precedence TIMES DIVIDE
