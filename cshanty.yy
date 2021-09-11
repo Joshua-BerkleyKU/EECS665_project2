@@ -154,7 +154,7 @@ formals         : formalDecl {}
 
 formalDecl		: type id {}
 
-fnBody          : OPEN stmtList CLOSE {}
+//fnBody          : OPEN stmtList CLOSE {}
 
 stmtList        : stmtList stmt {}
                 | /* epsilon */ {}
