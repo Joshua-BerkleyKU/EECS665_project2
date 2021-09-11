@@ -72,15 +72,8 @@ callExp         ::=  id LPAREN RPAREN   // fn call with no args
                 | id LPAREN actualsList RPAREN  // with args
 
 actualsList     ::= exp
-                | actualsList COMMA exp
-
-term            ::= lval
-                | INTLITERAL
-                | STRLITERAL
-                | TRUE
-                | FALSE
-                | LPAREN exp RPAREN
-
+                | actualsList COMMA callExp
+                
 term            ::= lval
                 | INTLITERAL
                 | STRLITERAL
