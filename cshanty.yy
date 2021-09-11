@@ -124,31 +124,92 @@ project)
    grammar and make sure that all of the productions of the 
    given nonterminals are complete
 */
-program 	: globals
-		  {
-		  }
-globals 	: globals decl 
-	  	  { 
-	  	  }
-		| /* epsilon */
-		  { 
-		  }
+program         ::= globals {}
 
-decl 		: varDecl SEMICOL
-		  {
-		  }
+globals         ::= globals decl {}
+                | /* epsilon */ {}
 
-varDecl 	: type id
-		  {
-		  }
+decl            ::= varDecl {}
+                | fnDecl {}
+				| recordDecl {}
 
-type 		: INT
-	  	  { 
-		  }
+recordDecl		::= RECORD id OPEN varDeclList CLOSE {}
 
-id		: ID
-		  {
-		  }
+varDecl         ::= type id SEMICOL
+
+varDeclList		::= varDecl {}
+				| varDeclList varDecl {}
+
+type            ::= INT {}
+                |   BOOL {}
+				|   STRING {}
+                |   VOID {}
+				|   id {}
+
+fnDecl          ::= type id LPAREN RPAREN OPEN stmtList CLOSE {}
+				|   type id LPAREN formals RPAREN OPEN stmtList CLOSE {}
+
+formals         ::= formalDecl {}
+                | formals COMMA formalDecl {}
+
+formalDecl		::= type id {}
+
+fnBody          ::= OPEN stmtList CLOSE {}
+
+stmtList        ::= stmtList stmt {}
+                | /* epsilon */ {}
+
+stmt            ::= varDecl SEMICOL {}
+                | assignExp SEMICOL {}
+                | lval DEC SEMICOL {}
+                | lval INC SEMICOL {}
+                | RECEIVE lval SEMICOL {}
+                | REPORT exp SEMICOL {}
+                | IF LPAREN exp RPAREN OPEN stmtList CLOSE {}
+                | IF LPAREN exp RPAREN OPEN stmtList CLOSE ELSE OPEN stmtList CLOSE {}
+                | WHILE LPAREN exp RPAREN OPEN stmtList CLOSE {}
+                | RETURN exp SEMICOL {}
+                | RETURN SEMICOL {}
+                | callExp SEMICOL {}
+
+exp             ::= assignExp {}
+                | exp MINUS exp {}
+                | exp PLUS exp {}
+                | exp TIMES exp {}
+                | exp DIVIDE exp {}
+                | exp AND exp {}
+                | exp OR exp {}
+                | exp EQUALS exp {}
+                | exp NOTEQUALS exp {}
+                | exp GREATER exp {}
+                | exp GREATEREQ exp {}
+                | exp LESS exp {}
+                | exp LESSEQ exp {}
+                | NOT exp {}
+                | MINUS term {}
+                | term {}
+
+assignExp       ::= lval ASSIGN exp {}
+
+callExp         ::=  id LPAREN RPAREN  {} // fn call with no args
+                | id LPAREN actualsList RPAREN {} // with args
+
+actualsList     ::= exp {}
+                | actualsList COMMA exp {}
+                
+
+term            ::= lval {}
+                | INTLITERAL {}
+                | STRLITERAL {}
+                | TRUE {}
+                | FALSE {}
+                | LPAREN exp RPAREN {}
+                | callExp {}
+
+lval             ::= id {}
+                | id LBRACE id RBRACE {}
+
+id              ::= ID {}
  /* TODO: add productions for the entire grammar of the language */
 	
 %%
