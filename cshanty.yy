@@ -152,7 +152,7 @@ fnDecl          : type id LPAREN RPAREN OPEN stmtList CLOSE
 formals         : type id {}
                 | formals COMMA type id {}
 
-stmtList        ::= stmtList stmt
+stmtList        : stmtList stmt
                 | /* epsilon */
 
 stmt			: varDecl SEMICOL
