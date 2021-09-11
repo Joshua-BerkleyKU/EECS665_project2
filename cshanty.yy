@@ -129,11 +129,15 @@ program 		: globals {}
 globals 		: globals decl {}
 				| /* epsilon */	{}
 
-decl 			: varDecl SEMICOL {}
+decl 			: varDecl {}
 
-varDecl 		: type id {}
+varDecl 		: type id SEMICOL {}
 
 type 			: INT {}
+				| BOOL {}
+				| STRING {}
+				| VOID {}
+				| id {}
 
 id				: ID {}
 
