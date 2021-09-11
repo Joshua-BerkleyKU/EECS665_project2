@@ -146,7 +146,7 @@ project)
    grammar and make sure that all of the productions of the 
    given nonterminals are complete
 */
-program 	: globals
+program 	: globals END
 		  {
 		  }
 globals 	: globals decl 
