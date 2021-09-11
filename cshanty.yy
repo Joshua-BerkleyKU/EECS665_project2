@@ -145,6 +145,15 @@ varDecl 		: type id
 type 			: INT
 	  	  { 
 		  }
+
+
+term            ::= lval
+                | INTLITERAL
+                | STRLITERAL
+                | TRUE
+                | FALSE
+                | LPAREN exp RPAREN
+
 lval            : id
                 | id LBRACE id RBRACE
 
