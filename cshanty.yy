@@ -135,9 +135,6 @@ varDecl 		: type id {}
 
 type 			: INT {}
 
-lval            : ID {}
-                | ID LBRACE ID RBRACE {}
-
 id				: ID {}
 
  /* TODO: add productions for the entire grammar of the language */
