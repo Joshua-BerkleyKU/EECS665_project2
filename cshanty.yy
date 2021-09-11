@@ -68,6 +68,22 @@ project)
  *  Some terminals, like ID, are "transIDToken", meaning the translation
  *  also has a name field. 
 */
+%left MINUS
+%left PLUS
+%left TIMES
+%left DIVIDE
+%left AND
+%left OR
+%right ASSIGN 
+
+%precedence NOT
+%precedence TIMES DIVIDE
+%precedence PLUS MINUS
+%precedence LESS LESSEQ EQUALS NOTEQUALS GREATER GREATEREQ
+%precedence AND
+%precedence OR
+%precedence ASSIGN
+
 %token                   END	   0 "end file"
 %token	<transToken>     AND
 %token	<transToken>     ASSIGN
@@ -118,21 +134,7 @@ project)
  * declarations
 */
 
-%left MINUS
-%left PLUS
-%left TIMES
-%left DIVIDE
-%left AND
-%left OR
-%right ASSIGN 
 
-%precedence NOT
-%precedence TIMES DIVIDE
-%precedence PLUS MINUS
-%precedence LESS LESSEQ EQUALS NOTEQUALS GREATER GREATEREQ
-%precedence AND
-%precedence OR
-%precedence ASSIGN
 
 %%
 
