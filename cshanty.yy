@@ -170,7 +170,6 @@ type 		: INT
 
 id		: ID
 		  {
-			  std::cout << " test ";
 		  }
  /* TODO: add productions for the entire grammar of the language */
 	
