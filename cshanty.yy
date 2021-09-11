@@ -130,6 +130,7 @@ globals 		: globals decl {}
 				| /* epsilon */	{}
 
 decl 			: varDecl {}
+				| recordDecl
 
 recordDecl		: RECORD id OPEN varDeclList CLOSE
 
