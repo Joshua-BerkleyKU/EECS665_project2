@@ -118,28 +118,6 @@ project)
  * declarations
 */
 
-%left "MINUS"
-%left "PLUS"
-%left "TIMES"
-%left "DIVIDE"
-%left "AND"
-%left "OR"
-%nonassoc "LESS"
-%nonassoc "LESSEQ"
-%nonassoc "EQUALS"
-%nonassoc "NOTEQUALS"
-%nonassoc "GREATER"
-%nonassoc "GREATEREQ"
-%right "ASSIGN" 
-
-%precedence NOT
-%precedence TIMES DIVIDE
-%precedence PLUS MINUS
-%precedence LESS LESSEQ EQUALS NOTEQUALS GREATER GREATEREQ
-%precedence AND
-%precedence OR
-%precedence ASSIGN
-
 %%
 
 /* TODO: add productions for the other nonterminals in the 
