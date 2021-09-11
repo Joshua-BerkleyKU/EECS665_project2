@@ -146,8 +146,8 @@ type 			: INT {}
 				| VOID {}
 				| id {}
 
-fnDecl          : type id LPAREN RPAREN OPEN stmtList CLOSE
-				|   type id LPAREN formals RPAREN OPEN stmtList CLOSE
+fnDecl          : type id LPAREN RPAREN OPEN  CLOSE
+				|   type id LPAREN formals RPAREN OPEN  CLOSE
 
 formals         ::= type id {}
                 | formals COMMA type id {}
