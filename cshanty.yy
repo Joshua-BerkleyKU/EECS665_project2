@@ -130,6 +130,7 @@ globals 		: globals decl {}
 				| /* epsilon */	{}
 
 decl 			: varDecl {}
+				| fnDecl {}
 				| recordDecl {}
 
 recordDecl		: RECORD id OPEN varDeclList CLOSE {}
@@ -144,6 +145,12 @@ type 			: INT {}
 				| STRING {}
 				| VOID {}
 				| id {}
+
+fnDecl          : type id LPAREN RPAREN OPEN stmtList CLOSE
+				|   type id LPAREN formals RPAREN OPEN stmtList CLOSE
+
+formals         ::= type id {}
+                | formals COMMA type id {}
 
 id				: ID {}
 
