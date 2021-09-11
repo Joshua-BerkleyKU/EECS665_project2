@@ -131,7 +131,12 @@ globals 		: globals decl {}
 
 decl 			: varDecl {}
 
+recordDecl		: RECORD id OPEN varDeclList CLOSE
+
 varDecl 		: type id SEMICOL {}
+
+varDeclList		: varDecl
+				| varDeclList varDecl
 
 type 			: INT {}
 				| BOOL {}
