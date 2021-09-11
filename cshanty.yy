@@ -165,7 +165,7 @@ stmt            : varDecl SEMICOL {}
                 | lval INC SEMICOL {}
                 | RECEIVE lval SEMICOL {}
                 | REPORT exp SEMICOL {}
-                | IF LPAREN exp RPAREN OPEN stmtList CLOSE {}
+//                | IF LPAREN exp RPAREN OPEN stmtList CLOSE {}
                 | IF LPAREN exp RPAREN OPEN stmtList CLOSE ELSE OPEN stmtList CLOSE {}
                 | WHILE LPAREN exp RPAREN OPEN stmtList CLOSE {}
                 | RETURN exp SEMICOL {}
