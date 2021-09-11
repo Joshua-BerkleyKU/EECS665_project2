@@ -209,7 +209,7 @@ term            ::= lval {}
 lval             ::= id {}
                 | id LBRACE id RBRACE {}
 
-id              ::= ID {}
+id              ::= ID {} 
  /* TODO: add productions for the entire grammar of the language */
 	
 %%
