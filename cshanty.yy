@@ -164,11 +164,9 @@ exp             : lval ASSIGN exp {}
 				| MINUS term {}
                 | term {}
 
-callExp         :  id LPAREN RPAREN {}
-                | id LPAREN actualsList RPAREN {}
-
 actualsList     : exp {}
-                | actualsList COMMA callExp {}
+                | actualsList COMMA id LPAREN RPAREN {}
+				| actualsList COMMA id LPAREN actualsList RPAREN {}
 
 term            : ID
                 | INTLITERAL
