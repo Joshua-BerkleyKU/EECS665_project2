@@ -158,15 +158,18 @@ stmtList        : stmtList stmt {}
 stmt			: varDecl SEMICOL {}
 				| REPORT exp SEMICOL {}
                 | RETURN SEMICOL {}
+				| callExp SEMICOL {}
 
 exp             : lval ASSIGN exp {}
 				| exp PLUS term {}
 				| MINUS term {}
                 | term {}
 
+callExp         : id LPAREN RPAREN {}
+                | id LPAREN actualsList RPAREN {}
+
 actualsList     : exp {}
-                | actualsList COMMA id LPAREN RPAREN {}
-				| actualsList COMMA id LPAREN actualsList RPAREN {}
+                | actualsList COMMA callExp {}
 
 term            : ID
                 | INTLITERAL
