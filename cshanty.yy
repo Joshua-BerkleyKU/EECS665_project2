@@ -118,8 +118,6 @@ project)
  * declarations
 */
 
-%left "PLUS"
-
 %%
 
 /* TODO: add productions for the other nonterminals in the 
@@ -161,7 +159,7 @@ stmt			: varDecl SEMICOL {}
 				| REPORT exp SEMICOL {}
                 | RETURN SEMICOL {}
 
-exp             : exp PLUS exp {}
+exp             : exp PLUS term {}
 				| MINUS term {}
                 | term {}
 
