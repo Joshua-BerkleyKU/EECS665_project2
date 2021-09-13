@@ -118,70 +118,75 @@ project)
  * declarations
 */
 
+%left PLUS
+
 %%
 
 /* TODO: add productions for the other nonterminals in the 
    grammar and make sure that all of the productions of the 
    given nonterminals are complete
 */
-program 	: globals
-		  {
-		  }
-globals 	: globals decl 
-	  	  { 
-	  	  }
-		| /* epsilon */
-		  { 
-		  }
+program 		: globals {}
 
-decl 		: varDecl
-		  {
-		  }
-		| fnDec1
-		  {
-		  }
-		  {
-		  }
-		| recordDec1
-		  {
-		  }
+globals 		: globals decl {}
+				| /* epsilon */	{}
 
-varDecl 	: type id SEMICOL
-		  {
-		  }
+decl 			: varDecl {}
+				| fnDecl {}
+				| recordDecl {}
 
-varDeclList : varDecl
-		  {
-		  }
-		| varDeclList varDecl
-		  {
-		  }
+recordDecl		: RECORD id OPEN varDeclList CLOSE {}
 
-type 		: INT
-		  {
-		  }
-		| BOOL
-		  {
-		  }
-		  {
-		  }
-		| STRING
-		  {
-		  }
-		  {
-		  }
-		| VOID
-		  {
-		  }
-		  {
-		  }
-		| id
-		  {
-		  }
+varDecl 		: type id SEMICOL {}
 
-id		: ID
-		  {
-		  }
+varDeclList		: varDecl {}
+				| varDeclList varDecl {}
+
+type 			: INT {}
+				| BOOL {}
+				| STRING {}
+				| VOID {}
+				| id {}
+
+fnDecl          : type id LPAREN RPAREN OPEN stmtList CLOSE {}
+				| type id LPAREN formals RPAREN OPEN stmtList CLOSE {}
+
+formals         : type id {}
+                | formals COMMA type id {}
+
+stmtList        : stmtList stmt {}
+                | /* epsilon */ {}
+
+stmt			: varDecl SEMICOL {}
+				| assignExp SEMICOL	{}
+				| lval DEC SEMICOL {}
+                | lval INC SEMICOL {}
+                | RECEIVE lval SEMICOL {}
+                | REPORT exp SEMICOL {}
+				| IF LPAREN exp RPAREN OPEN stmtList CLOSE {}
+                | IF LPAREN exp RPAREN OPEN stmtList CLOSE ELSE OPEN stmtList CLOSE {}
+                | WHILE LPAREN exp RPAREN OPEN stmtList CLOSE {}
+				| RETURN exp SEMICOL {}
+                | RETURN SEMICOL {}
+
+exp             : exp PLUS exp {}
+				| MINUS term {}
+                | term {}
+
+assignExp       : lval ASSIGN exp {}
+
+term            : lval {}
+                | INTLITERAL {}
+                | STRLITERAL {}
+                | TRUE {}
+                | FALSE {}
+                | LPAREN exp RPAREN {}
+
+lval            : id {}
+                | id LBRACE id RBRACE {}
+
+id				: ID {}
+
  /* TODO: add productions for the entire grammar of the language */
 	
 %%
