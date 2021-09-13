@@ -118,7 +118,7 @@ project)
  * declarations
 */
 
-%left 
+%left "PLUS"
 
 %%
 
