@@ -1,1 +1,1 @@
-int testid;
+ testid int;
