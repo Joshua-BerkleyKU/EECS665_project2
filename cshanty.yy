@@ -156,22 +156,7 @@ stmtList        : stmtList stmt {}
                 | /* epsilon */ {}
 
 stmt			: varDecl SEMICOL {}
-				| REPORT exp SEMICOL {}
                 | RETURN SEMICOL {}
-
-exp             : exp MINUS exp {}
-                | exp PLUS exp {}
-                | exp TIMES exp {}
-                | exp DIVIDE exp {}
-                | exp AND exp {}
-                | exp OR exp {}
-                | exp EQUALS exp {}
-                | exp NOTEQUALS exp {}
-                | exp GREATER exp {}
-                | exp GREATEREQ exp {}
-                | exp LESS exp {}
-                | exp LESSEQ exp {}
-                | NOT exp {}
 
 id				: ID {}
 
