@@ -160,6 +160,7 @@ stmt			: varDecl SEMICOL {}
                 | RETURN SEMICOL {}
 
 exp             : exp PLUS term {}
+				| exp LESSEQ exp {}
 				| MINUS term {}
                 | term {}
 
