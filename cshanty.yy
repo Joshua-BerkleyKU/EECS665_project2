@@ -165,8 +165,6 @@ exp             : exp MINUS exp {}
                 | term {}
 
 term            : ID {}
-                | INTLITERAL {}
-                | STRLITERAL {}
                 | TRUE {}
                 | FALSE {}
                 | LPAREN exp RPAREN {}
