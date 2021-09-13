@@ -159,7 +159,8 @@ stmt			: varDecl SEMICOL {}
 				| REPORT exp SEMICOL {}
                 | RETURN SEMICOL {}
 
-exp             : MINUS term {}
+exp             : exp PLUS term {}
+				| MINUS term {}
                 | term {}
 
 term            : ID
