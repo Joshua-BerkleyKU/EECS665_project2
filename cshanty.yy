@@ -156,7 +156,7 @@ stmtList        : stmtList stmt {}
                 | /* epsilon */ {}
 
 stmt			: varDecl SEMICOL {}
-				| assignExp SEMICOL	{}
+				| lval ASSIGN exp SEMICOL	{}
 				| lval DEC SEMICOL {}
                 | lval INC SEMICOL {}
                 | RECEIVE lval SEMICOL {}
@@ -167,11 +167,10 @@ stmt			: varDecl SEMICOL {}
 				| RETURN exp SEMICOL {}
                 | RETURN SEMICOL {}
 
-exp             : exp PLUS term {}
+exp             : lval ASSIGN exp {}
+				| exp PLUS term {}
 				| MINUS term {}
                 | term {}
-
-assignExp       : lval ASSIGN exp {}
 
 term            : lval {}
                 | INTLITERAL {}
