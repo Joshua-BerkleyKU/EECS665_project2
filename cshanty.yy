@@ -173,14 +173,6 @@ exp             : exp MINUS exp {}
                 | exp LESS exp {}
                 | exp LESSEQ exp {}
                 | NOT exp {}
-				| MINUS term {}
-                | term {}
-
-term            : INTLITERAL {}
-                | STRLITERAL {}
-                | TRUE {}
-                | FALSE {}
-                | LPAREN exp RPAREN {}
 
 id				: ID {}
 
