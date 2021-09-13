@@ -177,7 +177,7 @@ term            : ID
                 | FALSE
                 | LPAREN exp RPAREN
 
-lval             ::= ID {}
+lval            : ID {}
                 | id LBRACE id RBRACE {}
 
 id				: ID {}
