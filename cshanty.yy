@@ -163,15 +163,15 @@ exp             : exp PLUS term {}
 				| MINUS term {}
                 | term {}
 
-term            : lval
-                | INTLITERAL
-                | STRLITERAL
-                | TRUE
-                | FALSE
-                | LPAREN exp RPAREN
+term            : lval {}
+                | INTLITERAL {}
+                | STRLITERAL {}
+                | TRUE {}
+                | FALSE {}
+                | LPAREN exp RPAREN {}
 
-lval            : ID {}
-                | ID LBRACE ID RBRACE
+lval            : id {}
+                | id LBRACE id RBRACE {}
 
 id				: ID {}
 
