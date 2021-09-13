@@ -177,6 +177,9 @@ term            : ID
                 | FALSE
                 | LPAREN exp RPAREN
 
+lval             ::= ID {}
+                | id LBRACE id RBRACE {}
+
 id				: ID {}
 
  /* TODO: add productions for the entire grammar of the language */
