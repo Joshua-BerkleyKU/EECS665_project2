@@ -156,7 +156,6 @@ stmtList        : stmtList stmt {}
                 | /* epsilon */ {}
 
 stmt			: varDecl SEMICOL {}
-				| assignExp SEMICOL	{}
 				| lval DEC SEMICOL {}
                 | lval INC SEMICOL {}
                 | RECEIVE lval SEMICOL {}
