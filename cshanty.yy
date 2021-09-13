@@ -161,6 +161,15 @@ stmt			: varDecl SEMICOL {}
 
 exp             : exp MINUS exp {}
                 | exp PLUS exp {}
+				| MINUS term {}
+                | term {}
+
+term            : ID {}
+                | INTLITERAL {}
+                | STRLITERAL {}
+                | TRUE {}
+                | FALSE {}
+                | LPAREN exp RPAREN {}
 
 id				: ID {}
 
