@@ -160,6 +160,7 @@ stmt			: varDecl SEMICOL {}
                 | RETURN SEMICOL {}
 
 exp             : MINUS term {}
+                | term {}
 
 term            : ID {}
 
