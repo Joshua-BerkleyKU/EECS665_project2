@@ -158,10 +158,8 @@ stmtList        : stmtList stmt {}
 stmt			: varDecl SEMICOL {}
 				| REPORT exp SEMICOL {}
                 | RETURN SEMICOL {}
-				| lval ASSIGN exp {}
 
-exp             : lval ASSIGN exp {}
-				| exp PLUS term {}
+exp             : exp PLUS term {}
 				| MINUS term {}
                 | term {}
 
@@ -171,9 +169,6 @@ term            : ID
                 | TRUE
                 | FALSE
                 | LPAREN exp RPAREN
-
-lval            : id {}
-                | id LBRACE id RBRACE {}
 
 id				: ID {}
 
