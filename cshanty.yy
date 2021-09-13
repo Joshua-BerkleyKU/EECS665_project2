@@ -157,7 +157,6 @@ stmtList        : stmtList stmt {}
 
 stmt			: varDecl SEMICOL {}
 				| REPORT exp SEMICOL {}
-				| RETURN exp SEMICOL {}
                 | RETURN SEMICOL {}
 
 exp             : exp MINUS exp {}
