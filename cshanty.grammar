@@ -12,7 +12,7 @@ decl            ::= varDecl
 
 recordDecl	::= RECORD id OPEN varDeclList CLOSE
 
-varDecl         ::= type id SEMICOL
+varDecl         ::= type id
 
 varDeclList	::= varDecl
 		| varDeclList varDecl
@@ -73,7 +73,7 @@ callExp         ::=  id LPAREN RPAREN   // fn call with no args
 
 actualsList     ::= exp
                 | actualsList COMMA callExp
-                
+
 term            ::= lval
                 | INTLITERAL
                 | STRLITERAL
