@@ -159,8 +159,10 @@ type 			: INT {}
 fnDecl          : type id LPAREN RPAREN OPEN stmtList CLOSE {}
 				| type id LPAREN formals RPAREN OPEN stmtList CLOSE {}
 
-formals         : type id {}
-                | formals COMMA type id {}
+formals         : formalDecl {}
+                | formals COMMA formalDecl {}
+
+formalDecl      : type id {}
 
 stmtList        : stmtList stmt {}
                 | /* epsilon */ {}
@@ -198,10 +200,10 @@ exp             : assignExp
 assignExp       : lval ASSIGN exp {}
 
 callExp         : id LPAREN RPAREN {}
-                | id LPAREN actualList RPAREN {}
+                | id LPAREN actualsList RPAREN {}
 
-actualList      : exp {}
-                | actualList COMMA callExp {}
+actualsList      : exp {}
+                | actualsList COMMA callExp {}
 
 term            : lval {}
                 | INTLITERAL {}
