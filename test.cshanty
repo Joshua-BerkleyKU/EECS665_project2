@@ -1,1 +1,4 @@
-int a ;
+void v() {
+int a;
+a = 5;
+}
