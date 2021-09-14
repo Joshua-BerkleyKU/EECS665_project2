@@ -1,4 +1,3 @@
 void v() {
-    int a
-    a = 5;
+    int a = 5;
 }
