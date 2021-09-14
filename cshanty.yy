@@ -118,7 +118,15 @@ project)
  * declarations
 */
 
+%right ASSIGN
+%left AND
+%left OR
+%nonassoc LESS LESSEQ GREATER GREATEREQ NOTEQUALS EQUALS
+%left MINUS
 %left PLUS
+%left TIMES
+%left DIVIDE
+%left NOT
 
 %%
 
@@ -151,8 +159,10 @@ type 			: INT {}
 fnDecl          : type id LPAREN RPAREN OPEN stmtList CLOSE {}
 				| type id LPAREN formals RPAREN OPEN stmtList CLOSE {}
 
-formals         : type id {}
-                | formals COMMA type id {}
+formals         : formalDecl {}
+                | formals COMMA formalDecl {}
+
+formalDecl      : type id {}
 
 stmtList        : stmtList stmt {}
                 | /* epsilon */ {}
@@ -168,12 +178,32 @@ stmt			: varDecl SEMICOL {}
                 | WHILE LPAREN exp RPAREN OPEN stmtList CLOSE {}
 				| RETURN exp SEMICOL {}
                 | RETURN SEMICOL {}
+                | callExp SEMICOL {}
 
-exp             : exp PLUS exp {}
-				| MINUS term {}
+exp             : assignExp
+                | exp MINUS exp {}
+                | exp PLUS exp {}
+                | exp TIMES exp {}
+                | exp DIVIDE exp {}
+                | exp AND exp {}
+                | exp OR exp {}
+                | exp EQUALS exp {}
+                | exp NOTEQUALS exp {}
+                | exp GREATER exp {}
+                | exp GREATEREQ exp {}
+                | exp LESS exp {}
+                | exp LESSEQ exp {}
+                | NOT exp {}
+                | MINUS term {}
                 | term {}
 
 assignExp       : lval ASSIGN exp {}
+
+callExp         : id LPAREN RPAREN {}
+                | id LPAREN actualsList RPAREN {}
+
+actualsList      : exp {}
+                | actualsList COMMA callExp {}
 
 term            : lval {}
                 | INTLITERAL {}
@@ -181,6 +211,7 @@ term            : lval {}
                 | TRUE {}
                 | FALSE {}
                 | LPAREN exp RPAREN {}
+                | callExp {}
 
 lval            : id {}
                 | id LBRACE id RBRACE {}
