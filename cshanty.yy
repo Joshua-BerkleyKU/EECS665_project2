@@ -118,7 +118,15 @@ project)
  * declarations
 */
 
+%right ASSIGN
+%left MINUS
 %left PLUS
+%left TIMES
+%left DIVIDE
+%left AND
+%left OR
+%nonassoc LESS LESSEQ GREATER GREATEREQ NOTEQUALS EQUALS
+%left NOT
 
 %%
 
