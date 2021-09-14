@@ -145,7 +145,7 @@ decl 			: varDecl {}
 
 recordDecl		: RECORD id OPEN varDeclList CLOSE {}
 
-varDecl 		: type id {}
+varDecl 		: type id SEMICOL {}
 
 varDeclList		: varDecl {}
 				| varDeclList varDecl {}
@@ -167,7 +167,7 @@ formalDecl      : type id {}
 stmtList        : stmtList stmt {}
                 | /* epsilon */ {}
 
-stmt			: varDecl SEMICOL {}
+stmt			: varDecl {}
 				| assignExp SEMICOL	{}
 				| lval DEC SEMICOL {}
                 | lval INC SEMICOL {}
