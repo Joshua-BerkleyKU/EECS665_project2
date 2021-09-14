@@ -167,7 +167,7 @@ formalDecl      : type id {}
 stmtList        : stmtList stmt {}
                 | /* epsilon */ {}
 
-stmt			: varDecl SEMICOL {}
+stmt			: varDecl {}
 				| assignExp SEMICOL	{}
 				| lval DEC SEMICOL {}
                 | lval INC SEMICOL {}
