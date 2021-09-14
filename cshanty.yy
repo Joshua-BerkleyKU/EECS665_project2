@@ -119,13 +119,13 @@ project)
 */
 
 %right ASSIGN
+%left AND
+%left OR
+%nonassoc LESS LESSEQ GREATER GREATEREQ NOTEQUALS EQUALS
 %left MINUS
 %left PLUS
 %left TIMES
 %left DIVIDE
-%left AND
-%left OR
-%nonassoc LESS LESSEQ GREATER GREATEREQ NOTEQUALS EQUALS
 %left NOT
 
 %%
