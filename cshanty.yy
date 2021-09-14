@@ -145,7 +145,7 @@ decl 			: varDecl {}
 
 recordDecl		: RECORD id OPEN varDeclList CLOSE {}
 
-varDecl 		: type id SEMICOL {}
+varDecl 		: type id {}
 
 varDeclList		: varDecl {}
 				| varDeclList varDecl {}
