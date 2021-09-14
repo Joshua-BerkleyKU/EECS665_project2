@@ -1,1 +1,4 @@
-int testid;
+void v() {
+int a;
+a = 5;
+}
