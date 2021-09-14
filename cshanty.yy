@@ -168,12 +168,32 @@ stmt			: varDecl SEMICOL {}
                 | WHILE LPAREN exp RPAREN OPEN stmtList CLOSE {}
 				| RETURN exp SEMICOL {}
                 | RETURN SEMICOL {}
+                | callExp SEMICOL {}
 
-exp             : exp PLUS exp {}
-				| MINUS term {}
+exp             : assignExp
+                | exp MINUS exp {}
+                | exp PLUS exp {}
+                | exp TIMES exp {}
+                | exp DIVIDE exp {}
+                | exp AND exp {}
+                | exp OR exp {}
+                | exp EQUALS exp {}
+                | exp NOTEQUALS exp {}
+                | exp GREATER exp {}
+                | exp GREATEREQ exp {}
+                | exp LESS exp {}
+                | exp LESSEQ exp {}
+                | NOT exp {}
+                | MINUS term {}
                 | term {}
 
 assignExp       : lval ASSIGN exp {}
+
+callExp         : id LPAREN RPAREN {}
+                | id LPAREN actualList RPAREN {}
+
+actualList      : exp {}
+                | actualList COMMA callExp {}
 
 term            : lval {}
                 | INTLITERAL {}
@@ -181,6 +201,7 @@ term            : lval {}
                 | TRUE {}
                 | FALSE {}
                 | LPAREN exp RPAREN {}
+                | callExp {}
 
 lval            : id {}
                 | id LBRACE id RBRACE {}
